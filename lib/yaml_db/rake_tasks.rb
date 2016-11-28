@@ -10,12 +10,12 @@ module YamlDb
     end
 
     def self.data_load_task
-      SerializationHelper::Base.new(helper).load(db_dump_data_file(helper.extension))
+      SerializationHelper::Base.new(helper).load(db_dump_data_file(helper.extension), false)
     end
 
     def self.data_load_dir_task
       dir = ENV['dir'] || 'base'
-      SerializationHelper::Base.new(helper).load_from_dir(dump_dir("/#{dir}"))
+      SerializationHelper::Base.new(helper).load_from_dir(dump_dir("/#{dir}"), false)
     end
 
     private
